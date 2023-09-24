@@ -1,0 +1,25 @@
+﻿@{
+    Layout ="~/Views/Shared/_StudentLayout.cshtml";
+}
+
+<div class="text-center">
+    <h1>Registration :</h1>
+        
+
+</div>
+<div class="text-right">
+    <input type="button" value="GetStudentList" Onclick="location.href = '@Url.Action("Students", "Student")'" />
+    
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <h2> New Student </h2>
+        <p>
+            If your are new Student plz Register below.
+        </p>
+        <input type="button" id="btnREGISTER" value="REGISTER" Onclick="location.href = '@Url.Action("Register", "Student")'" />
+    </div>
+
+
+</div>

@@ -1,0 +1,66 @@
+﻿@model CollegeManagement.Models.DataModel.Teacher;
+
+<div class="container">
+    <h2 class="text-center">Edit Details</h2>
+    <br />
+@*    <div class="text-right">
+        <input type="button" id="btnREGISTER" value="REGISTER" Onclick="location.href = '@Url.Action("Register", "Teacher")'" />
+
+    </div>*@
+    <form method="post" >
+        <div class="row">
+            <div class="col-md-6">
+                <input asp-for="Id" hidden/>
+                <div class="form-outline">
+
+                    <label>FirstName :</label>
+                    <input asp-for="FirstName" class="form-control" placeholder="First Name" />
+                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                </div>
+                <br />
+                <div class="form-outline">
+                    <label>LastName :</label>
+                    <input asp-for="LastName" class="form-control" placeholder="Last Name" />
+                    <span asp-validation-for="LastName" class="text-danger"></span>
+
+                </div>
+                <br />
+                <div class="form-outline">
+                    <label>Address1 :</label>
+                    <input asp-for="Address1" class="form-control" placeholder="Address1" />
+                    <span asp-validation-for="Address1" class="text-danger"></span>
+
+                </div>
+                <br />
+            </div>
+            <div class="col-md-6">
+                <div class="form-outline">
+                    <label>Address2 :</label>
+                    <input asp-for="Address2" class="form-control" placeholder="Address2" />
+                    <span asp-validation-for="Address2" class="text-danger"></span>
+
+                </div>
+                <br />
+                <div class="form-outline">
+                    <label>City :  </label>
+                    <input asp-for="City" class="form-control" placeholder="City" />
+                    <span asp-validation-for="City" class="text-danger"></span>
+
+                </div>
+                <br />
+                <div class="form-outline">
+                    <label>State :  </label>
+                    <input asp-for="State" class="form-control" placeholder="State" />
+                    <span asp-validation-for="State" class="text-danger"></span>
+
+                </div>
+            </div>
+        </div>
+        <div>
+
+            <input type="submit" class="btn-dark" value="Save"  asp-action="EditPost" asp-controller="Teacher"/>
+        </div>
+    </form>
+
+</div>
+

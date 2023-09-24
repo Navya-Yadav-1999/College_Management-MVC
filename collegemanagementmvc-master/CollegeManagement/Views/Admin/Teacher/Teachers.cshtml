@@ -1,0 +1,95 @@
+﻿@using CollegeManagement.Models.DataModel;
+@model IEnumerable<CollegeManagement.Models.DataModel.Teacher>
+
+@{
+
+    Layout = "~/Views/Shared/_TeacherLayout.cshtml";
+    ViewBag.Title = "Teachers";
+
+
+}
+@*<p>
+    @using (Html.BeginForm("Index", "Home", FormMethod.Get))
+    {
+        <b>Search By:</b>
+        @Html.RadioButton("searchBy","Name",true)<text>Name</text>
+        @Html.TextBox("search") <input type="search" value="Submit"/>
+    }
+</p>*@
+
+<div class="row">
+    <div class="col-6">
+        <form method="get" asp-action="TeacherSearch" asp-controller="Teacher" class="text-center">
+          <p>
+             <input type="search" placeholder="Enter Teacher First Name or Last Name"  value="@ViewData["GetTeacherDetails"]" name="terSearch" />
+             <input type="submit" value="search" class="btn btn-primary" />
+             <a asp-action="Teachers" asp-controller="Teacher" class="btn btn-success">Get all Teacher</a>
+          </p>
+        </form>
+    </div>
+    <div class="col-6">
+        <div class="text-right">
+            <input type="button" value="AddTecaher" class="text-end btn btn-primary" Onclick="location.href = '@Url.Action("Register", "Teacher")'" />
+        </div>
+    </div>
+</div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.City)
+
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.State)
+
+            </th>
+         
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in ViewData.Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.State)
+            </td>
+           
+          <td>
+                    <a asp-action="Edit" class="btn btn-warning " asp-controller="Student" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Delete" class="btn btn-danger " asp-controller="Student" asp-route-id="@item.Id">Delete</a>
+                </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+
